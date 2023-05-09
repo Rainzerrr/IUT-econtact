@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+    <div>
+        <p class="admin-title">Gestion des utilisateurs</p>
+        <div class="users">
+            {% if users|length == 0 %}
+                <p>Il n'y a aucun utilisateur pour l'instant</p>
+            {% else %}
+                {% for user in users %}
+                    <div class="user">
+                        <div class="user-infos">
+                            <p class="user-username">{{user.username}}</p>
+                            <p class="user-firstname">{{user.firstname}}</p>
+                            <p class="user-lastname">{{user.lastname}}</p>
+                            <p class="user-age">{{user.age}}ans</p>
+                            <p class="user-email">{{user.email}}</p>
+                            <p class="user-city">{{user.city}}</p>
+                        </div>
+                        <a class="admin-remove-user" href="{{ path('remove_user', {'user': user.id}) }}">Supprimer l'utilisateur</a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

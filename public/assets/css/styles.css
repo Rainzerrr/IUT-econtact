@@ -1,0 +1,14 @@
+@import url("nav.css");
+@import url("footer.css");
+@import url("accueil.css");
+@import url("addContact.css");
+@import url("inscription.css");
+@import url("friendRequest.css");
+@import url("admin.css");
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+body {
+    background-color: rgb(187, 224, 226);
+    font-family: 'Roboto', sans-serif;
+}

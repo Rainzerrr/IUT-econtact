@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contacts
+{% endblock %}
+{% block body %}
+	<div class="add-contact-container">
+
+	{% if friendrequests|length > 0 %}
+	<p class="friendrequest-title">Vos demmandes d'amis</p>
+			<div class="friendrequest-container">
+				{% for friendrequest in friendrequests %}
+					<div class="friendrequest">
+						<div class="friendrequest-section">
+							<p class="friendrequest-username">{{friendrequest.username}}</p>
+							<p class="friendrequest-age">{{friendrequest.age}}ans</p>
+							<p class="friendrequest-city">{{friendrequest.city}}</p>
+						</div>
+						<div>
+							<a class="add-btn" href="{{ path('handle_friendrequest', {'friend': friendrequest.id, 'status': 'approved'}) }}">Ajouter</a>
+							<a class="remove-btn" href="{{ path('handle_friendrequest', {'friend': friendrequest.id, 'status': 'refused'}) }}">Supprimer</a>
+						</div>
+
+					</div>
+
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		<p class="title">Vos Contacts</p>
+
+		{% if contacts|length == 0 %}
+			<p class="error-message">Vous n'avez pas encore ajoutés de contact !</p>
+		{% else %}
+			<div class="contact-container">
+
+				{% for contact in contacts %}
+					<div class="contact">
+						<div class="contact-picture"></div>
+						<div class="contact-first-section">
+							<div class="contact-nom-prenom">
+								{# <p class="contact-firstname">{{contact.firstname}}</p>
+								<p class="contact-lastname">{{contact.lastname}}</p> #}
+								<p class="contact-firstname">{{contact.username}}</p>
+							</div>
+							<p class="contact-email">{{contact.email}}</p>
+						</div>
+						<div class="contact-second-section">
+							<p class="contact-age">{{contact.age}}ans</p>
+							<div class="contact-separator"></div>
+							<p class="contact-city">{{contact.city}}</p>
+
+						</div>
+						<a class="dlt-btn" href="{{ path('remove_friend', {'friend': contact.id}) }}">Supprimer</a>
+					</div>
+
+				{% endfor %}
+			</div>
+		{% endif %}
+
+
+	</div>
+
+{% endblock %}

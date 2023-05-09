@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+{% block body %}
+	<div class="accueil-container">
+		<img src="{{asset('assets/images/accueil-img.png')}}" class="image"/>
+		{% if app.user %}
+			<p class="welcome-message">
+				Bienvenue
+				{{username}}
+				!
+			</p>
+		{% else %}
+			<div>
+				<p class="welcome-message">Bienvenue !</p>
+				<p class="welcome-message">Inscrivez ou Connectez vous pour parler à vos friends !</p>
+			</div>
+		{% endif %}
+	</div>
+
+
+{% endblock %}

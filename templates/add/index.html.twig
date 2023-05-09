@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un Contact
+{% endblock %}
+
+{% block body %}
+    <div class="add-form">
+        <p class="title">Ajoutez un ami</p>
+        <div class="message-container">
+            <p class="message">{{message}}</p>
+        </div>
+        {{form(search_form)}}
+
+        </div>
+    {% endblock %}
