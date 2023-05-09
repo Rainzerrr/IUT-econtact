@@ -1,5 +1,3 @@
-{# {% import '@SymfonySecurityCore/macros.html.twig' as security %} #}
-
 {% block body %}
 	<nav>
 		<div>
@@ -14,29 +12,16 @@
 				<a href="{{path('contact')}}" class="rubrique">Mes Friends</a>
 				<a href="{{path('app_logout')}}" class="rubrique">Deconnexion</a>
 				<p class="nav-username">{{app.user.username}}<p/>
-			{% elseif app.user %}
-				<a href="{{path('add')}}" class="rubrique">Ajouter un Friend</a>
-				<a href="{{path('contact')}}" class="rubrique">Mes Friends</a>
-				<a href="{{path('remove_user', {'user': 'current'})}}" class="rubrique">Supprimer son compte</a>
-				<a href="{{path('app_logout')}}" class="rubrique">Deconnexion</a>
-				<p class="nav-username">{{app.user.username}}<p/>
-			{% else %}
-				<a href="{{path('register')}}" class="rubrique">Inscription</a>
-				<a href="{{path('login')}}" class="rubrique">Connexion</a>
-			{% endif %}
-		</div>
-	</nav>
-{% endblock %}
-
-{% block javascripts %}
-	<script>
-		const account = document.querySelector(".account-rubriques");
-const accountBtn = document.querySelector(".account-user");
-
-
-accountBtn.addEventListener("click", function () {
-account.classList.toggle("show");
-});
-	</script>
-
-{% endblock %}
+				{% elseif app.user %}
+					<a href="{{path('add')}}" class="rubrique">Ajouter un Friend</a>
+					<a href="{{path('contact')}}" class="rubrique">Mes Friends</a>
+					<a href="{{path('remove_user', {'user': 'current'})}}" class="rubrique">Supprimer son compte</a>
+					<a href="{{path('app_logout')}}" class="rubrique">Deconnexion</a>
+					<p class="nav-username">{{app.user.username}}<p/>
+					{% else %}
+						<a href="{{path('register')}}" class="rubrique">Inscription</a>
+						<a href="{{path('login')}}" class="rubrique">Connexion</a>
+					{% endif %}
+				</div>
+			</nav>
+		{% endblock %}
